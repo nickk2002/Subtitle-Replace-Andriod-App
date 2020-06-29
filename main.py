@@ -31,7 +31,7 @@ class Root(FloatLayout):
 
 class Editor(App):
     def build(self):
-        return FileChooserListView(path = "storage/emulated/0")
+        return FileChooserListView(path = "storage/emulated/0/download")
 
 
 Editor().run()

@@ -3,8 +3,6 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from subtitles import subtitles_diactritice_all
-from kivy.uix.filechooser import FileChooserListView
-
 
 class LoadDialog(FloatLayout):
     cancel = ObjectProperty(None)
@@ -31,8 +29,6 @@ class Root(FloatLayout):
 
 
 class Editor(App):
-    def build(self):
-        return FileChooserListView(path = "/storage/emulated/0/download")
-
+    pass
 
 Editor().run()

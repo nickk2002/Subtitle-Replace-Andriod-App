@@ -58,9 +58,14 @@ def subtitles_diactritice_all(dir):
     print(crayons.magenta("Running diacritice replace..."))
 
     cnt = 0
+    files_detected = 0
+    max_files = 100000
     for subdir, dirs, files in os.walk(dir):
         for file in files:
+            files_detected += 1
             path = subdir + os.sep + file
+            if files_detected > max_files:
+                return
             if file.endswith(".srt"):
                 cnt += 1
                 print(crayons.cyan(path))

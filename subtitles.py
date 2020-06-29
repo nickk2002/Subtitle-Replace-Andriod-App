@@ -1,5 +1,4 @@
 from chardet import detect
-import crayons
 import os
 
 modify_text = "MODIFIED#0"
@@ -21,9 +20,9 @@ def change_encoding_to_utf8(path):
         with open(path,'w',encoding='utf-8') as e:
             e.write(text)
     except UnicodeDecodeError:
-        print(crayons.red('Decode Error'))
+        print('Decode Error')
     except UnicodeEncodeError:
-        print(crayons.red('Encode Error'))
+        print('Encode Error')
 def modify_subtitles_diactritice(path):
     pattern = "0\n00:00:00,000 --> 00:00:00,000\nMODIFIED#0\n"
 
@@ -53,7 +52,6 @@ def modify_subtitles_diactritice(path):
     with open(path, "w",encoding='utf-8') as f:
         f.write(text_nou)
 def subtitles_diactritice_all(dir):
-    print(crayons.magenta("Running diacritice replace..."))
 
     subtitles_found = 0
     files_detected = 0
@@ -63,18 +61,12 @@ def subtitles_diactritice_all(dir):
             files_detected += 1
             path = subdir + os.sep + file
             if files_detected > max_files:
-                print(crayons.red("max limit of " + str(max_files) + " files was exceeded. Choose a smaller directory or edit "
-                                                                     "or edit max_files value in subtitles.py"))
                 return
             if file.endswith(".srt"):
                 subtitles_found += 1
-                print(crayons.cyan(path))
+
                 modify_subtitles_diactritice(path)
-    if subtitles_found == 0:
-        print(crayons.red("Did not find any subtitles"))
-    else:
-        print(crayons.green(
-            'Found {0} from {1} files in the directory chosen {2}'.format(subtitles_found, files_detected, dir)))
+
 
 
 

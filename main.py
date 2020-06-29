@@ -3,7 +3,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from subtitles import subtitles_diactritice_all
-
+from kivy.uix.filechooser import FileChooserListView
 
 class LoadDialog(FloatLayout):
     cancel = ObjectProperty(None)
@@ -27,8 +27,11 @@ class Root(FloatLayout):
         text = "Hei Acum se ruleaza"
         subtitles_diactritice_all(path)
 
+
+
 class Editor(App):
-    pass
+    def build(self):
+        return FileChooserListView()
 
 
 Editor().run()

@@ -17,5 +17,3 @@ Pygments==2.6.1
 pypiwin32==223
 pywin32==228
 regex==2020.6.8
-six==1.15.0
-urllib3==1.25.9

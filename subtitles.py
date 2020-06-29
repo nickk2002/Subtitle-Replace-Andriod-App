@@ -63,6 +63,8 @@ def subtitles_diactritice_all(dir):
             files_detected += 1
             path = subdir + os.sep + file
             if files_detected > max_files:
+                print(crayons.red("max limit of " + str(max_files) + " files was exceeded. Choose a smaller directory or edit "
+                                                                     "or edit max_files value in subtitles.py"))
                 return
             if file.endswith(".srt"):
                 subtitles_found += 1
@@ -70,6 +72,9 @@ def subtitles_diactritice_all(dir):
                 modify_subtitles_diactritice(path)
     if subtitles_found == 0:
         print(crayons.red("Did not find any subtitles"))
+    else:
+        print(crayons.green(
+            'Found {0} from {1} files in the directory chosen {2}'.format(subtitles_found, files_detected, dir)))
 
 
 
